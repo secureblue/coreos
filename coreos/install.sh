@@ -29,7 +29,9 @@ find /tmp/rpms/
 
 rpm-ostree install \
     /tmp/rpms/akmods-common/ublue-os-ucore-addons*.rpm \
-    /tmp/rpms/config/ublue-os-signing*.rpm
+    /tmp/rpms/config/ublue-os-signing*.rpm \
+    /tpm/rpms/config/ublue-os-luks*.rpm \
+    /tpm/rpms/config/ublue-os-just*.rpm
 
 # Handle Kernel Skew with override replace
 rpm-ostree cliwrap install-to-root /
@@ -69,3 +71,9 @@ if [[ "-nvidia" == "${NVIDIA_TAG}" ]]; then
         nvidia-driver-cuda \
         nvidia-container-toolkit
 fi
+
+# add tailscale repo
+curl -L https://pkgs.tailscale.com/stable/fedora/tailscale.repo -o /etc/yum.repos.d/tailscale.repo
+
+# ensure firewalld presence
+rpm-ostree install firewalld
