@@ -75,5 +75,5 @@ fi
 # add tailscale repo
 curl -L https://pkgs.tailscale.com/stable/fedora/tailscale.repo -o /etc/yum.repos.d/tailscale.repo
 
-# ensure firewalld presence
-rpm-ostree install firewalld
+# ensure firewalld and selinux utils presence
+rpm-ostree install firewalld policycoreutils-python-utils
