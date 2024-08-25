@@ -1,4 +1,4 @@
-name: build-ucore
+name: build-coreos
 on:
   workflow_call:
     inputs:
@@ -113,14 +113,6 @@ jobs:
       # Checkout push-to-registry action GitHub repository
       - name: Checkout Push to Registry action
         uses: actions/checkout@v4
-
-      # sent env variables which depend on the matrix
-      - name: Matrix variables
-        shell: bash
-        run: |
-          set -x
-          IMAGE_NAME=ucore${{ matrix.image_suffix }}
-          echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
 
       - name: Pull base and kmod images
         uses: Wandalen/wretry.action@v3.5.0
@@ -240,8 +232,7 @@ jobs:
           images: |
             ${{ env.IMAGE_NAME }}
           labels: |
-            io.artifacthub.package.logo-url=https://avatars.githubusercontent.com/u/120078124?s=200&v=4
-            io.artifacthub.package.readme-url=https://raw.githubusercontent.com/ublue-os/ucore/main/README.md
+            io.artifacthub.package.readme-url=https://raw.githubusercontent.com/secureblue/coreos/main/README.md
             org.opencontainers.image.description=An OCI image of Fedora CoreOS with NVIDIA and/or ZFS pre-installed
             org.opencontainers.image.title=${{ env.IMAGE_NAME }}
             org.opencontainers.image.version=${{ env.IMAGE_VERSION }}
