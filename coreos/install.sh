@@ -30,7 +30,8 @@ find /tmp/rpms/
 rpm-ostree install \
     /tmp/rpms/akmods-common/ublue-os-ucore-addons*.rpm \
     /tmp/rpms/config/ublue-os-signing*.rpm \
-    /tpm/rpms/config/ublue-os-just*.rpm
+    /tmp/rpms/config/ublue-os-just*.rpm \
+    /tmp/rpms/config/ublue-os-luks*.rpm
 
 # Handle Kernel Skew with override replace
 rpm-ostree cliwrap install-to-root /
