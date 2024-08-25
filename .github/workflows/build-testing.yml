@@ -5,7 +5,10 @@ on:
   schedule:
     - cron: '55 2 * * *'  # 2:55am-ish UTC everyday (approx 50 minutes after akmods images run)
   workflow_dispatch:
-
+  push:
+    paths-ignore: # don't rebuild if only documentation has changed
+      - "**.md"
+      
 jobs:
   build-testing:
     permissions:
