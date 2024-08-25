@@ -30,7 +30,6 @@ find /tmp/rpms/
 rpm-ostree install \
     /tmp/rpms/akmods-common/ublue-os-ucore-addons*.rpm \
     /tmp/rpms/config/ublue-os-signing*.rpm \
-    /tpm/rpms/config/ublue-os-luks*.rpm \
     /tpm/rpms/config/ublue-os-just*.rpm
 
 # Handle Kernel Skew with override replace
