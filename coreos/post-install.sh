@@ -2,6 +2,9 @@
 
 set -ouex pipefail
 
+# Ensure automatic updates are enabled by default
+systemctl enable rpm-ostreed-automatic.timer
+
 ## CONDITIONAL: post-install ZFS
 if [[ "-zfs" == "${ZFS_TAG}" ]]; then
     echo "no post-install tasks for ZFS"
