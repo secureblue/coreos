@@ -23,6 +23,10 @@ fi
 # always disable cisco-open264 repo
 sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/fedora-cisco-openh264.repo
 
+curl -Lo /etc/yum.repos.d/negativo17-fedora-multimedia.repo https://negativo17.org/repos/fedora-multimedia.repo
+
+rpm-ostree install rar
+
 #### INSTALL
 # inspect to see what RPMS we copied in
 find /tmp/rpms/
